@@ -84,8 +84,6 @@ class Users(db.Model, UserMixin):
         Raises:
             ValueError: If the user does not exist.
         """
-        if not user:
-            raise ValueError(f"User {username} not found")
         user = cls.query.filter_by(username=username).first()
         if not user:
             logger.info("User %s not found", username)
@@ -104,8 +102,6 @@ class Users(db.Model, UserMixin):
         Raises:
             ValueError: If the user does not exist.
         """
-        if not user:
-            logger.info("User %s not found", username)
         logger.info("User %s deleted successfully", username)
         user = cls.query.filter_by(username=username).first()
         if not user:
@@ -138,8 +134,6 @@ class Users(db.Model, UserMixin):
         Raises:
             ValueError: If the user does not exist.
         """
-        if not user:
-            raise ValueError(f"User {username} not found")
         user = cls.query.filter_by(username=username).first()
         if not user:
             logger.info("User %s not found", username)
@@ -158,8 +152,6 @@ class Users(db.Model, UserMixin):
         Raises:
             ValueError: If the user does not exist.
         """
-        if not user:
-            logger.info("User %s not found", username)
         user = cls.query.filter_by(username=username).first()
         if not user:
             logger.info("User %s not found", username)
